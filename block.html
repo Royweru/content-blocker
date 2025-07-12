@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overcome - Content Blocked</title>
+    <link rel="stylesheet" href="block.css">
+    <script src="block.js"></script>
+</head>
+<body>
+   
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1><span class="accent">Oops.</span> The page you were about to visit is blocked.</h1>
+                <p>Looks like this page contains some explicit content. If you think we got this wrong, let us know here.</p>
+                
+                <div class="feeling-section">
+                    <span class="feeling-emoji">😳</span>
+                    <div class="feeling-text">I'm feeling tempted right now</div>
+                    <button class="continue-btn">
+                        Continue <span>⌄</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Time Perspective Section -->
+        <section class="time-perspective">
+            <div class="time-circles">
+                <div class="time-circle past">
+                    <h3>Past<br>you</h3>
+                </div>
+                <div class="time-circle current">
+                    <h3>Current<br>you</h3>
+                </div>
+                <div class="time-circle future">
+                    <h3>Future<br>you</h3>
+                </div>
+            </div>
+            <div class="time-quote">
+                "I don't want porn in my life" &nbsp;&nbsp;&nbsp; "I need porn" &nbsp;&nbsp;&nbsp; "I don't want porn in my life"
+            </div>
+        </section>
+
+        <!-- Urge Section -->
+        <section class="urge-section">
+            <h2>This is a momentary urge.<br>It'll pass.</h2>
+            <p>Most urges pass after 10 minutes. Take a deep breath; you can make it through this one, too.</p>
+            
+            <div class="urge-meter"></div>
+            
+            <h3 class="urge-question">How strong is the urge?</h3>
+            <div class="urge-options">
+                <button class="urge-btn" onclick="showActionCard('mild')">Mild</button>
+                <button class="urge-btn" onclick="showActionCard('medium')">Medium</button>
+                <button class="urge-btn" onclick="showActionCard('strong')">Strong</button>
+            </div>
+        </section>
+
+        <!-- Action Cards -->
+        <section class="action-cards">
+            <div class="action-card mild" id="mild-card">
+                <h3>🌱 Mild - Redirect</h3>
+                <p>Remove yourself from your current environment and redirect your energy to something purposeful.</p>
+                
+                <div class="suggestions">
+                    <h4>Top Suggestions</h4>
+                    <div class="suggestion-grid">
+                        <div class="suggestion-item">
+                            <span class="suggestion-emoji">🎵</span>
+                            <span class="suggestion-text">Listen to inspiring music</span>
+                        </div>
+                        <div class="suggestion-item">
+                            <span class="suggestion-emoji">🌲</span>
+                            <span class="suggestion-text">Go take a walk outside</span>
+                        </div>
+                        <div class="suggestion-item">
+                            <span class="suggestion-emoji">📱</span>
+                            <span class="suggestion-text">Turn off your device</span>
+                        </div>
+                        <div class="suggestion-item">
+                            <span class="suggestion-emoji">🧘</span>
+                            <span class="suggestion-text">Do some deep breathing or meditation</span>
+                        </div>
+                        <div class="suggestion-item">
+                            <span class="suggestion-emoji">🚶</span>
+                            <span class="suggestion-text">Get up and move to another location</span>
+                        </div>
+                        <div class="suggestion-item">
+                            <span class="suggestion-emoji">🙏</span>
+                            <span class="suggestion-text">Pray and listen</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="action-btn">I can do this</button>
+            </div>
+
+            <div class="action-card medium" id="medium-card">
+                <h3>🔄 Medium - Reconnect</h3>
+                <p>Reconnect with your purpose, your values, and your why.</p>
+                
+                <div class="suggestions">
+                    <h4>Top Suggestions</h4>
+                    <div class="suggestion-grid">
+                        <div class="suggestion-item">
+                            <span class="suggestion-emoji">🔥</span>
+                            <span class="suggestion-text">Listen to an episode from our community podcast, <a href="#" style="color: #10b981;">Beyond Sexual Brokenness</a> (warning - it's awesome)</span>
+                        </div>
+                        <div class="suggestion-item">
+                            <span class="suggestion-emoji">💡</span>
+                            <span class="suggestion-text">Write down your why; what will you gain from avoiding porn today?</span>
+                        </div>
+                        <div class="suggestion-item">
+                            <span class="suggestion-emoji">📚</span>
+                            <span class="suggestion-text">Read a book or work on a project that excites you</span>
+                        </div>
+                        <div class="suggestion-item">
+                            <span class="suggestion-emoji">🧠</span>
+                            <span class="suggestion-text">Review past journal reflections to remind you of thoughts and feelings</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="action-btn">I can do this</button>
+            </div>
+
+            <div class="action-card strong" id="strong-card">
+                <h3>💪 Strong - Reach Out</h3>
+                <p>Isolation keeps us stuck. Reaching out and connecting is the most effective way to make your urge powerless.</p>
+                
+                <div class="suggestions">
+                    <h4>Top Suggestions</h4>
+                    <div class="suggestion-grid">
+                        <div class="suggestion-item">
+                            <span class="suggestion-emoji">📞</span>
+                            <span class="suggestion-text">Call or text someone you haven't talked to in a while</span>
+                        </div>
+                        <div class="suggestion-item">
+                            <span class="suggestion-emoji">🎙️</span>
+                            <span class="suggestion-text">Record a voice letter for your child or spouse to listen to in the future</span>
+                        </div>
+                        <div class="suggestion-item">
+                            <span class="suggestion-emoji">💚</span>
+                            <span class="suggestion-text">Find someone to serve—get outside of your self!</span>
+                        </div>
+                        <div class="suggestion-item">
+                            <span class="suggestion-emoji">🤝</span>
+                            <span class="suggestion-text">Reach out to your accountability partner</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="action-btn">I can do this</button>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section class="resources-section">
+            <h2>Need more help to overcome pornography?</h2>
+            <p>Check out these additional free resources provided by Relay 🔗</p>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-image">📖</div>
+                    <h3>Request a free copy of the PDF guide</h3>
+                    <p>The Official Guide to Overcoming Pornography</p>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-image">🎧</div>
+                    <h3>Listen to our top-rated podcast</h3>
+                    <p>Beyond Sexual Brokenness - Real-time stories of recovery</p>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-image">📧</div>
+                    <h3>Join our private email newsletter</h3>
+                    <p>Square 2 - Weekly insights and encouragement</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

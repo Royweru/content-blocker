@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 350px;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .header h1 {
+      color: #1976d2;
+      margin: 0;
+      font-size: 18px;
+    }
+    
+    .status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .status-text {
+      font-weight: bold;
+    }
+    
+    .status.active {
+      border-left: 4px solid #4caf50;
+    }
+    
+    .status.inactive {
+      border-left: 4px solid #f44336;
+    }
+    
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+    
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+    
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    
+    input:checked + .slider {
+      background-color: #4caf50;
+    }
+    
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+    
+    .stats {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .stats h3 {
+      margin: 0 0 10px 0;
+      color: #333;
+      font-size: 14px;
+    }
+    
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      margin: 8px 0;
+      padding: 5px 0;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .stat-row:last-child {
+      border-bottom: none;
+    }
+    
+    .stat-value {
+      font-weight: bold;
+      color: #1976d2;
+    }
+    
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    
+    button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: background-color 0.3s;
+    }
+    
+    .btn-primary {
+      background: #1976d2;
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #1565c0;
+    }
+    
+    .btn-secondary {
+      background: #f0f0f0;
+      color: #333;
+    }
+    
+    .btn-secondary:hover {
+      background: #e0e0e0;
+    }
+    
+    .current-site {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .current-site h3 {
+      margin: 0 0 10px 0;
+      color: #333;
+      font-size: 14px;
+    }
+    
+    .site-info {
+      font-size: 12px;
+      color: #666;
+      word-break: break-all;
+    }
+    
+    .site-status {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 10px;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+    
+    .site-status.safe {
+      background: #c8e6c9;
+      color: #2e7d32;
+    }
+    
+    .site-status.blocked {
+      background: #ffcdd2;
+      color: #c62828;
+    }
+    
+    .site-status.warning {
+      background: #fff3c4;
+      color: #f57c00;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🛡️ Content Blocker</h1>
+  </div>
+  
+  <div class="status" id="status">
+    <div class="status-text">Protection Status</div>
+    <label class="toggle-switch">
+      <input type="checkbox" id="protectionToggle" checked>
+      <span class="slider"></span>
+    </label>
+  </div>
+  
+  <div class="current-site">
+    <h3>Current Site</h3>
+    <div class="site-info" id="currentSite">Loading...</div>
+    <div class="site-status safe" id="siteStatus">Safe</div>
+  </div>
+  
+  <div class="stats">
+    <h3>Today's Statistics</h3>
+    <div class="stat-row">
+      <span>Sites Blocked</span>
+      <span class="stat-value" id="blockedCount">0</span>
+    </div>
+    <div class="stat-row">
+      <span>Images Filtered</span>
+      <span class="stat-value" id="imageCount">0</span>
+    </div>
+    <div class="stat-row">
+      <span>Forms Hidden</span>
+      <span class="stat-value" id="formCount">0</span>
+    </div>
+    <div class="stat-row">
+      <span>Total Protections</span>
+      <span class="stat-value" id="totalCount">0</span>
+    </div>
+  </div>
+  
+  <div class="actions">
+    <button class="btn-secondary" id="whitelistBtn">Whitelist Site</button>
+    <button class="btn-primary" id="settingsBtn">Settings</button>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

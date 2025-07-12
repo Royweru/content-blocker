@@ -1,0 +1,59 @@
+{
+  "manifest_version": 3,
+  "name": "Overcome - Content Blocker",
+  "version": "1.0",
+  "description": "Blocks explicit content and inappropriate websites to help with recovery",
+  
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "webRequest",
+    "webRequestBlocking",
+    "notifications"
+  ],
+  
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Overcome - Content Blocker"
+  },
+  
+  "options_page": "options.html",
+  
+  "web_accessible_resources": [
+    {
+      "resources": ["block.html", "icons/*.png"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  
+"browser_specific_settings": {
+  "gecko": {
+    "id": "overcome-content-blocker@myextension.local",
+    "strict_min_version": "58.0"
+  }
+  }
+}
